@@ -410,7 +410,7 @@
                     { text: "IgA", value: "a" },
                     { text: "IgD", value: "b" },
                     { text: "IgE", value: "c" },
-                    { text:D: "IgG", value: "d" },
+                    { text: "IgG", value: "d" },
                     { text: "IgM", value: "e" }
                 ],
                 correct: "c",
@@ -423,7 +423,7 @@
                     { text: "IgE-mediated degranulation of basophils.", value: "b" },
                     { text: "Antibodies (IgG/IgM) directed against cell-surface antigens.", value: "c" },
                     { text: "A T-cell-mediated delayed inflammatory response.", value: "d" },
-                    { text: "The release of leukotrienes and prostaglandins as primary mediators.", value:E: "e" }
+                    { text: "The release of leukotrienes and prostaglandins as primary mediators.", value: "e" }
                 ],
                 correct: "c",
                 explanation: "Type II (Cytotoxic) Hypersensitivity involves antibodies (IgG or IgM) directed against antigens that are FIXED on a cell surface (e.g., a red blood cell). Type III is caused by SOLUBLE antigen-antibody complexes that deposit in tissues."
@@ -626,7 +626,7 @@
 
         // --- Event Listeners ---
         
-        // Load the first question when the page is ready
+        // This event listener ensures the script runs *after* the HTML page is fully loaded
         document.addEventListener('DOMContentLoaded', () => {
             loadQuestion(0);
         });
@@ -635,6 +635,6 @@
         nextBtn.addEventListener('click', handleNextButton);
 
     </script>
-
+    
 </body>
 </html>
