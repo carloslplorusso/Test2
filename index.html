@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INBDE Practice Exam</title>
     <style>
-        /* --- Estilos Generales --- */
+        /* --- General Styles --- */
         :root {
             --primary-color: #005f73;
             --primary-dark: #003049;
@@ -27,7 +27,7 @@
             line-height: 1.6;
         }
 
-        /* --- Contenedor Principal --- */
+        /* --- Main Container --- */
         .quiz-container {
             max-width: 800px;
             margin: 20px auto;
@@ -37,7 +37,7 @@
             overflow: hidden;
         }
         
-        /* --- Encabezado --- */
+        /* --- Header --- */
         header {
             padding: 20px 30px;
             background-color: var(--primary-color);
@@ -55,7 +55,7 @@
             font-weight: 600;
         }
 
-        /* --- Cuerpo del Quiz --- */
+        /* --- Quiz Body --- */
         #quizBody {
             padding: 30px;
         }
@@ -66,7 +66,7 @@
             color: var(--primary-dark);
         }
         
-        /* --- Opciones (Radio Buttons) --- */
+        /* --- Options (Radio Buttons) --- */
         .options {
             display: flex;
             flex-direction: column;
@@ -85,7 +85,7 @@
             background-color: #e9ecef;
         }
         .options input[type="radio"] {
-            /* Ocultos pero accesibles */
+            /* Hidden but accessible */
             opacity: 0;
             width: 0;
             height: 0;
@@ -95,14 +95,14 @@
             display: inline-block;
             margin-left: 5px;
         }
-        /* Estilo para la opción seleccionada */
+        /* Style for selected option */
         .options label:has(input[type="radio"]:checked) {
             border-color: var(--primary-color);
             background-color: #e6f7ff;
             box-shadow: 0 0 0 2px rgba(0, 95, 115, 0.2);
         }
 
-        /* --- Footer y Botón --- */
+        /* --- Footer & Button --- */
         .quiz-footer {
             padding: 20px 30px;
             background-color: #fdfdfd;
@@ -110,7 +110,7 @@
             text-align: right;
         }
         #nextBtn {
-            display: inline-block; /* Cambiado de 'block' */
+            display: inline-block;
             padding: 12px 30px;
             font-size: 1.1em;
             font-weight: 600;
@@ -125,7 +125,7 @@
             background-color: #005a8d;
         }
 
-        /* --- Sección de Resultados --- */
+        /* --- Results Page --- */
         #resultsPage {
             padding: 10px;
         }
@@ -157,7 +157,7 @@
             margin-top: 15px;
             font-size: 0.95em;
         }
-        /* Estilos para Correcto/Incorrecto */
+        /* Styles for Correct/Incorrect */
         .result-item.correct {
             background-color: var(--correct-bg);
             border-left: 5px solid #2a9d8f;
@@ -184,7 +184,7 @@
             display: none;
         }
         
-        /* --- Estilos Responsivos (Móvil) --- */
+        /* --- Responsive Styles (Mobile) --- */
         @media (max-width: 600px) {
             body {
                 background-color: var(--white);
@@ -219,13 +219,13 @@
     <div class="quiz-container">
         <header>
             <h1>INBDE Practice Exam</h1>
-            <p id="progressText">Cargando...</p>
+            <p id="progressText">Loading...</p>
         </header>
         
         <div id="quizBody"></div>
 
         <div class="quiz-footer">
-            <button id="nextBtn">Siguiente</button>
+            <button id="nextBtn">Next</button>
         </div>
 
         <div id="resultsPage" class="hidden">
@@ -234,7 +234,7 @@
     </div>
 
     <script>
-        // --- Fuente de Datos: Preguntas, Opciones y Explicaciones ---
+        // --- Data Source: Questions, Options, and Explanations ---
         const quizData = [
             {
                 question: "A 68-year-old male with end-stage renal disease (ESRD) presents for emergency extraction of tooth #30. His nephrologist confirms a GFR of 8 mL/min. Which analgesic and antibiotic regimen, if prescribed without modification, poses the LEAST iatrogenic risk?",
@@ -246,7 +246,7 @@
                     { text: "Codeine 30mg and Doxycycline 100mg", value: "e" }
                 ],
                 correct: "e",
-                explanation: "Con un GFR < 10 mL/min, se deben evitar los AINEs (Ibuprofen, Diclofenac, Naproxen) por ser nefrotóxicos. También se deben evitar antibióticos de eliminación renal como Amoxicilina, Tetraciclina y Aciclovir. Doxycycline se elimina principalmente por vía hepática y la Codeína se considera segura, siendo esta la opción de menor riesgo."
+                explanation: "With a GFR < 10 mL/min, NSAIDs (Ibuprofen, Diclofenac, Naproxen) must be avoided as they are nephrotoxic. Antibiotics with renal elimination like Amoxicillin, Tetracycline, and Acyclovir must also be avoided or adjusted. Doxycycline is primarily eliminated hepatically and Codeine is considered safe, making this the lowest-risk option."
             },
             {
                 question: "A patient with chronic renal failure awaiting transplantation presents for a consultation. Clinical examination reveals pale mucosa, gingival petechiae, and significant lingual erosion. Radiographs show decreased trabeculation and partial pulp obliteration. Which of the following findings would be INCONSISTENT with the patient's systemic condition?",
@@ -258,7 +258,7 @@
                     { text: "Soft tissue radiolucencies consistent with renal osteodystrophy.", value: "e" }
                 ],
                 correct: "b",
-                explanation: "La uremia tiene un efecto bacteriostático y buffer (por la urea en la saliva), lo que paradójicamente DISMINUYE el riesgo de caries en pacientes con insuficiencia renal. Todos los demás hallazgos (estomatitis, hiperplasia por ciclosporina, xerostomía y osteodistrofia renal) son manifestaciones orales clásicas."
+                explanation: "Uremia has a bacteriostatic and buffering effect (due to urea in the saliva), which paradoxically DECREASES the risk of caries in patients with renal failure. All other findings (stomatitis, cyclosporine-induced hyperplasia, xerostomia, and renal osteodystrophy) are classic oral manifestations."
             },
             {
                 question: "A dental patient's medical history update reveals a recent blood creatinine level of 4.5 mg/dl. Based on the provided staging, what is the most probable clinical status and corresponding creatinine clearance range for this individual?",
@@ -270,7 +270,7 @@
                     { text: "Dialysis required; <10 mL/min", value: "e" }
                 ],
                 correct: "d",
-                explanation: "Según la tabla del documento, un nivel de creatinina en sangre entre 2.5-10 mg/dl corresponde a 'Established clinical disease' (Enfermedad clínica establecida), que tiene un aclaramiento de creatinina de 10-25 mL/min. 4.5 mg/dl se encuentra dentro de este rango."
+                explanation: "According to the document's table, a blood creatinine level between 2.5-10 mg/dl corresponds to 'Established clinical disease', which has a creatinine clearance of 10-25 mL/min. 4.5 mg/dl falls within this range."
             },
             {
                 question: "A patient who received a renal transplant 7 years prior is on a stable regimen of cyclosporine and prednisone. Which of the following oral findings is LEAST likely to be directly associated with the patient's post-transplant medical management?",
@@ -282,7 +282,7 @@
                     { text: "Candidiasis", value: "e" }
                 ],
                 correct: "d",
-                explanation: "La hipoplasia del esmalte es un defecto del desarrollo que ocurre mientras se forma el diente. No puede ser causada por medicamentos en un adulto post-trasplante. La hiperplasia (por ciclosporina) y las infecciones oportunistas (leucoplasia vellosa, sarcoma, candidiasis) son riesgos conocidos de la inmunosupresión."
+                explanation: "Enamel hypoplasia is a developmental defect that occurs while the tooth is forming. It cannot be caused by medications in a post-transplant adult. Gingival hyperplasia (from cyclosporine) and opportunistic infections (oral hairy leukoplakia, sarcoma, candidiasis) are known risks of immunosuppression."
             },
             {
                 question: "A clinician is managing a hospitalized patient for a DVT. The patient was initially started on an IV anticoagulant that monitors the intrinsic pathway and has a rapid onset. The plan is to transition to an oral anticoagulant that is teratogenic and monitored via the extrinsic pathway. Which drug combination represents this transition?",
@@ -294,7 +294,7 @@
                     { text: "Initial: Protamine; Transition: Vitamin K", value: "e" }
                 ],
                 correct: "b",
-                explanation: "La Heparina es IV, de inicio rápido y afecta la vía intrínseca (se monitoriza con aPTT). La Warfarina es oral, de inicio lento, teratogénica y afecta la vía extrínseca (se monitoriza con PT/INR). Esta es la 'terapia puente' clásica."
+                explanation: "Heparin is IV, has a rapid onset, and affects the intrinsic pathway (monitored by aPTT). Warfarin is oral, has a slow onset, is teratogenic, and affects the extrinsic pathway (monitored by PT/INR). This is the classic 'bridge therapy'."
             },
             {
                 question: "A 55-year-old patient on chronic warfarin therapy for atrial fibrillation requires extraction of tooth #14. His INR, measured 24 hours prior, is 2.7. Which of the following constitutes the LEAST appropriate management strategy according to current ADA and AAOM recommendations?",
@@ -306,7 +306,7 @@
                     { text: "Consulting the patient's physician, but not altering the warfarin dose.", value: "e" }
                 ],
                 correct: "b",
-                explanation: "Un INR de 2.7 está dentro del rango terapéutico (2.0-3.5) para procedimientos dentales. Las guías de la ADA y AAOM indican explícitamente NO suspender la warfarina, ya que el riesgo de un evento tromboembólico (ej. ACV) supera el riesgo de sangrado dental, el cual puede ser controlado con medidas locales."
+                explanation: "An INR of 2.7 is within the therapeutic range (2.0-3.5) for dental procedures. ADA and AAOM guidelines explicitly state NOT to discontinue warfarin, as the risk of a thromboembolic event (e.g., stroke) outweighs the risk of dental bleeding, which can be managed with local measures."
             },
             {
                 question: "A patient with a stable therapeutic INR of 2.5 on warfarin is diagnosed with a dental abscess. The dentist prescribes an antibiotic and the patient self-medicates. One week later, the patient's INR is dangerously elevated to 5.2. Which combination of medications FAILS to explain this potentiation?",
@@ -318,7 +318,7 @@
                     { text: "Rifampicin and chronic ethanol consumption.", value: "e" }
                 ],
                 correct: "e",
-                explanation: "La pregunta busca la combinación que NO aumenta (potencia) el INR. La Rifampicina (y el alcoholismo crónico) es un potente inductor de las enzimas P450 (CRAP BARS). Esto acelera el metabolismo de la warfarina, DISMINUYENDO su efecto y bajando el INR. Las otras opciones son inhibidores enzimáticos que elevan el INR."
+                explanation: "The question asks for the combination that does NOT increase (potentiate) the INR. Rifampicin (and chronic alcohol use) is a potent P450 enzyme inducer ('CRAP BARS'). This accelerates warfarin metabolism, DECREASING its effect and lowering the INR. The other options are enzyme inhibitors ('O DEVICES') that potentiate warfarin."
             },
             {
                 question: "A patient taking Apixaban (Eliquis) for DVT prevention requires a single-tooth implant placement. Which of the following management plans is most consistent with the provided guidelines for direct-acting oral anticoagulants (DOACs)?",
@@ -330,7 +330,7 @@
                     { text: "Double the Apixaban dose 24 hours post-operatively to compensate.", value: "e" }
                 ],
                 correct: "c",
-                explanation: "Para procedimientos dentales de bajo riesgo (como la colocación de 1-3 implantes o extracciones), las guías indican que los DOACs (como Apixaban) no requieren ser suspendidos ni modificados, siempre y cuando se usen medidas hemostáticas locales."
+                explanation: "For low-risk dental procedures (such as 1-3 extractions or implant placement), guidelines indicate that DOACs (like Apixaban) do not need to be discontinued or modified, provided local hemostatic measures are used."
             },
             {
                 question: "A patient presents with a non-healing extraction socket 10 weeks post-operatively. The patient has a history of IV Zoledronic acid for bone metastases. A panoramic radiograph confirms exposed, necrotic bone. Which additional finding is REQUIRED to confirm a diagnosis of MRONJ?",
@@ -342,7 +342,7 @@
                     { text: "A pathologic fracture of the inferior border.", value: "e" }
                 ],
                 correct: "c",
-                explanation: "La definición de MRONJ (según AAOMS 2022) tiene 3 criterios: 1) Uso de antirresortivos, 2) Hueso expuesto por >8 semanas, y 3) Ausencia de historia de radioterapia en la región. Si hubiera radioterapia, el diagnóstico diferencial sería osteorradionecrosis (ORN)."
+                explanation: "The AAOMS 2022 definition of MRONJ has 3 criteria: 1) Current or previous treatment with antiresorptive agents, 2) Exposed bone persistent for more than 8 weeks, and 3) No history of radiation therapy to the jaws. If there were radiation history, the diagnosis would be Osteoradionecrosis (ORN)."
             },
             {
                 question: "A patient on oral Alendronate for 6 years presents with dull, aching pain in the right mandible and loosening of tooth #29, not explained by periodontal disease. There is no visible exposed bone or fistula. Radiographs show localized osteosclerosis and obscuring of the PDL space. This clinical presentation is most consistent with:",
@@ -354,7 +354,7 @@
                     { text: "Osteoradionecrosis", value: "e" }
                 ],
                 correct: "c",
-                explanation: "La AAOMS define el Estadio 0 de MRONJ como la presencia de síntomas (dolor, movilidad dental) y cambios radiográficos (esclerosis, ensanchamiento del PDL) consistentes con MRONJ, pero SIN la presencia de hueso expuesto o fístula."
+                explanation: "The AAOMS defines MRONJ Stage 0 (nonexposed bone variant) as the presence of non-specific symptoms (like dull pain or odontalgia) and radiographic findings (like sclerosis or thickening of the lamina dura) in a patient at risk, but WITHOUT any visible exposed bone or fistula."
             },
             {
                 question: "A patient is diagnosed with MRONJ Stage 2. According to the non-operative treatment flowchart, which therapeutic modality is introduced at this stage that is NOT indicated for Stage 1?",
@@ -366,7 +366,7 @@
                     { text: "Antimicrobial rinses.", value: "e" }
                 ],
                 correct: "d",
-                explanation: "El Estadio 1 se define como hueso expuesto asintomático y sin infección. El Estadio 2 es hueso expuesto CON infección y/o dolor. Por lo tanto, el manejo del Estadio 2 añade antibióticos sistémicos y control del dolor, lo cual no está indicado en el Estadio 1."
+                explanation: "Stage 1 is defined as exposed bone that is asymptomatic and has no evidence of infection. Stage 2 is defined as exposed bone WITH evidence of infection and/or symptoms (pain). Therefore, the non-operative management for Stage 2 adds systemic antibiotics and pain control, which are not indicated for Stage 1."
             },
             {
                 question: "A 72-year-old female is scheduled for multiple extractions. Her medical history is significant for osteoporosis, for which she received an IV infusion of Zoledronic acid (Reclast) 11 months ago. Which statement INACCURATELY reflects the 2022 AAOMS guidelines regarding her management?",
@@ -378,7 +378,7 @@
                     { text: "If she had been on oral Alendronate for >4 years, a 3-4 month holiday prior to surgery would be considered.", value: "e" }
                 ],
                 correct: "a",
-                explanation: "Esta afirmación es la más incorrecta. Aunque el riesgo es menor que en pacientes con cáncer, los pacientes con osteoporosis que reciben antirresortivos (especialmente IV, como Reclast) SÍ tienen riesgo. Las guías consideran el tiempo desde la última dosis y no descartan un 'drug holiday' o, más bien, programar la cirugía antes de la siguiente dosis."
+                explanation: "This statement is inaccurate. While the risk is lower than for cancer patients, osteoporosis patients on antiresorptives (especially IV, like Reclast) ARE at risk. The AAOMS guidelines do suggest a 'drug holiday' for patients on oral bisphosphonates for >4 years and timing surgery based on the dosing schedule for agents like Denosumab. The benefit of a holiday for cancer patients, however, is unsubstantiated."
             },
             {
                 question: "A patient receiving bolus-dose 5-Fluorouracil chemotherapy presents with severe, painful oral ulcerations 5 days after their first infusion. Which of the following statements regarding their condition is LEAST accurate?",
@@ -390,7 +390,7 @@
                     { text: "Prophylactic use of oral cryotherapy during the infusion may reduce the severity of this condition.", value: "e" }
                 ],
                 correct: "d",
-                explanation: "Esta afirmación es falsa. Los enjuagues con alcohol o Clorhexidina (que a menudo tiene alcohol) son citotóxicos e irritantes para la mucosa ulcerada de la mucositis. El manejo paliativo se centra en enjuagues blandos, como solución salina o bicarbonato de sodio."
+                explanation: "This statement is the least accurate. Alcohol-based mouthrinses are irritating and should be avoided in patients with oral mucositis. Palliative management focuses on bland rinses, like saline or sodium bicarbonate, and maintaining oral hygiene. Chlorhexidine use is also often not recommended due to its alcohol content and irritation potential."
             },
             {
                 question: "A patient undergoing chemotherapy presents for an emergency dental visit. Which of the following clinical findings is NOT a recognized direct or indirect sequela of their antineoplastic therapy?",
@@ -402,7 +402,7 @@
                     { text: "Accelerated dental caries due to the cytotoxic effect on enamel.", value: "e" }
                 ],
                 correct: "e",
-                explanation: "La quimioterapia no tiene un efecto directo sobre el esmalte dental maduro y formado. Todos los demás hallazgos (infecciones oportunistas, reacciones de la mucosa y problemas de sangrado por supresión de la médula ósea) son secuelas comunes de la quimioterapia."
+                explanation: "Chemotherapy does not have a direct cytotoxic effect on mature, formed enamel. All other findings are common sequelae: opportunistic infections (candidiasis, herpes) due to neutropenia/immunosuppression, mucosal reactions (lichenoid), and bleeding issues (thrombocytopenia)."
             },
             {
                 question: "A patient with a severe, documented allergy to nuts and penicillin experiences syncope, wheezing, and urticaria 3 minutes after a dental procedure. This reaction is initiated by antigen cross-linking of which antibody class on the surface of mast cells?",
@@ -410,11 +410,11 @@
                     { text: "IgA", value: "a" },
                     { text: "IgD", value: "b" },
                     { text: "IgE", value: "c" },
-                    { text: "IgG", value: "d" },
+                    { text:D: "IgG", value: "d" },
                     { text: "IgM", value: "e" }
                 ],
                 correct: "c",
-                explanation: "La reacción descrita es una anafilaxia, la manifestación más severa de la Hipersensibilidad Tipo I (inmediata). Este tipo de reacción es mediada por la unión de antígenos a anticuerpos IgE en la superficie de mastocitos y basófilos, causando su degranulación."
+                explanation: "The described reaction is anaphylaxis, the most severe manifestation of Type I (Immediate) Hypersensitivity. This reaction is mediated by antigens cross-linking IgE antibodies on the surface of mast cells and basophils, causing degranulation."
             },
             {
                 question: "A Type II hypersensitivity reaction, such as an ABO blood transfusion incompatibility, is immunologically distinct from a Type III reaction because the Type II reaction involves:",
@@ -423,10 +423,10 @@
                     { text: "IgE-mediated degranulation of basophils.", value: "b" },
                     { text: "Antibodies (IgG/IgM) directed against cell-surface antigens.", value: "c" },
                     { text: "A T-cell-mediated delayed inflammatory response.", value: "d" },
-                    { text: "The release of leukotrienes and prostaglandins as primary mediators.", value: "e" }
+                    { text: "The release of leukotrienes and prostaglandins as primary mediators.", value:E: "e" }
                 ],
                 correct: "c",
-                explanation: "La Hipersensibilidad Tipo II (Citotóxica) ocurre cuando anticuerpos IgG o IgM se dirigen contra antígenos que están FIJOS en la superficie de una célula (ej. un glóbulo rojo). La Tipo III es causada por complejos antígeno-anticuerpo SOLUBLES que se depositan en los tejidos."
+                explanation: "Type II (Cytotoxic) Hypersensitivity involves antibodies (IgG or IgM) directed against antigens that are FIXED on a cell surface (e.g., a red blood cell). Type III is caused by SOLUBLE antigen-antibody complexes that deposit in tissues."
             },
             {
                 question: "A patient develops vasculitis, fever, and glomerulonephritis 10 days after receiving a vaccination. This systemic reaction, best characterized as serum sickness, is mediated by which pathogenic mechanism?",
@@ -438,7 +438,7 @@
                     { text: "Histamine release from IgE-coated mast cells.", value: "e" }
                 ],
                 correct: "a",
-                explanation: "La enfermedad del suero (Serum Sickness) es el ejemplo clásico de Hipersensibilidad Tipo III. Es una reacción sistémica causada por el depósito de inmunocomplejos (complejos antígeno-anticuerpo circulantes) en varios tejidos, como vasos sanguíneos (vasculitis) y riñones (glomerulonefritis)."
+                explanation: "Serum sickness is the classic example of a systemic Type III Hypersensitivity reaction. It is caused by the deposition of circulating antigen-antibody (immune) complexes in tissues, leading to complement activation and inflammation (e.g., vasculitis, glomerulonephritis)."
             },
             {
                 question: "A dental assistant presents with an erythematous, vesicular rash on their hands 48 hours after wearing a new brand of gloves. This reaction, which is not associated with urticaria or respiratory distress, is most likely mediated by:",
@@ -450,7 +450,7 @@
                     { text: "B-cell activation via TH2 cells.", value: "e" }
                 ],
                 correct: "a",
-                explanation: "Una reacción retardada (48 horas) que se manifiesta como dermatitis de contacto es el ejemplo clásico de Hipersensibilidad Tipo IV (celular o retardada). Esta reacción no es mediada por anticuerpos, sino por células T (específicamente TH1) que liberan citoquinas y activan macrófagos."
+                explanation: "A delayed reaction (48 hours) manifesting as contact dermatitis is the classic example of Type IV (Delayed-Type) Hypersensitivity. This reaction is not mediated by antibodies but by T-cells (specifically sensitized TH1 cells) releasing cytokines that activate macrophages."
             },
             {
                 question: "During an immediate (Type I) hypersensitivity reaction, which of the following mediators is NOT considered a primary, pre-formed component released from mast cell granules, but is instead synthesized *after* cell activation?",
@@ -462,7 +462,7 @@
                     { text: "Eosinophil chemotactic factor (ECF-A)", value: "e" }
                 ],
                 correct: "b",
-                explanation: "Los mediadores primarios (Histamina, Heparina, Proteasas, ECF-A) están pre-formados y almacenados en los gránulos del mastocito. Los Leucotrienos y Prostaglandinas son mediadores secundarios; se sintetizan a partir de la membrana celular (ácido araquidónico) SÓLO DESPUÉS de que la célula se activa."
+                explanation: "Primary mediators (Histamine, Heparin, Proteases, ECF-A) are pre-formed and stored in mast cell granules. Secondary mediators, like Leukotrienes (SRS-A) and Prostaglandins, are synthesized from the cell membrane (arachidonic acid) ONLY AFTER the cell is activated."
             },
             {
                 question: "Which of the following patient presentations is INCORRECTLY matched with its most probable iatrogenic or pathogenic cause?",
@@ -474,17 +474,17 @@
                     { text: "A 55-year-old with a positive tuberculin skin test (PPD); IgE-mediated degranulation.", value: "e" }
                 ],
                 correct: "e",
-                explanation: "La prueba de tuberculina (PPD) es el ejemplo por excelencia de una Hipersensibilidad Tipo IV (retardada, mediada por células T). La degranulación mediada por IgE corresponde a la Hipersensibilidad Tipo I (inmediata/alergias). Esta es la única asociación incorrecta."
+                explanation: "The tuberculin skin test (PPD) is a quintessential example of a Type IV (delayed-type, cell-mediated) hypersensitivity. IgE-mediated degranulation corresponds to Type I (immediate/allergic) hypersensitivity. This match is incorrect."
             }
         ];
 
 
-        // --- Variables Globales ---
+        // --- Global Variables ---
         let currentQuestionIndex = 0;
         let userAnswers = new Array(quizData.length).fill(null);
         let score = 0;
 
-        // --- Referencias al DOM ---
+        // --- DOM References ---
         const quizContainer = document.querySelector('.quiz-container');
         const header = document.querySelector('header');
         const progressText = document.getElementById('progressText');
@@ -493,33 +493,33 @@
         const resultsPage = document.getElementById('resultsPage');
         const quizFooter = document.querySelector('.quiz-footer');
 
-        // --- Función para Cargar la Pregunta ---
+        // --- Function to Load Question ---
         function loadQuestion(index) {
-            // Limpia el contenido anterior
+            // Clear previous content
             quizBody.innerHTML = '';
             
             const questionData = quizData[index];
 
-            // Crea el título de la pregunta
+            // Create question title
             const questionTitle = document.createElement('p');
             questionTitle.className = 'question-title';
             questionTitle.textContent = questionData.question;
             quizBody.appendChild(questionTitle);
 
-            // Crea el contenedor de opciones
+            // Create options container
             const optionsDiv = document.createElement('div');
             optionsDiv.className = 'options';
             
-            // Crea las opciones (radio buttons)
+            // Create radio button options
             questionData.options.forEach(option => {
                 const label = document.createElement('label');
                 
                 const radio = document.createElement('input');
                 radio.type = 'radio';
-                radio.name = 'q'; // Todas las opciones de una pregunta tienen el mismo nombre
+                radio.name = 'q'; // All options for one question have the same name
                 radio.value = option.value;
                 
-                // Vuelve a seleccionar la respuesta si el usuario retrocediera (si implementáramos "back")
+                // Re-select answer if user was to go back
                 if (userAnswers[index] === option.value) {
                     radio.checked = true;
                 }
@@ -534,51 +534,51 @@
 
             quizBody.appendChild(optionsDiv);
             
-            // Actualiza el texto de progreso
-            progressText.textContent = `Pregunta ${index + 1} de ${quizData.length}`;
+            // Update progress text
+            progressText.textContent = `Question ${index + 1} of ${quizData.length}`;
 
-            // Cambia el texto del botón si es la última pregunta
+            // Change button text on the last question
             if (index === quizData.length - 1) {
-                nextBtn.textContent = 'Ver Resultados';
+                nextBtn.textContent = 'View Results';
             } else {
-                nextBtn.textContent = 'Siguiente';
+                nextBtn.textContent = 'Next';
             }
         }
 
-        // --- Función para el Botón "Siguiente" ---
+        // --- Function for "Next" Button ---
         function handleNextButton() {
-            // 1. Validar si se seleccionó una respuesta
+            // 1. Validate that an option was selected
             const selectedOption = document.querySelector('input[name="q"]:checked');
             if (!selectedOption) {
-                alert('Por favor, selecciona una respuesta antes de continuar.');
-                return; // Detiene la función
+                alert('Please select an answer before continuing.');
+                return; // Stop the function
             }
 
-            // 2. Guardar la respuesta
+            // 2. Save the answer
             userAnswers[currentQuestionIndex] = selectedOption.value;
 
-            // 3. Avanzar a la siguiente pregunta o mostrar resultados
+            // 3. Advance to the next question or show results
             currentQuestionIndex++;
 
             if (currentQuestionIndex < quizData.length) {
-                // Si hay más preguntas
+                // If there are more questions
                 loadQuestion(currentQuestionIndex);
             } else {
-                // Si se terminaron las preguntas
+                // If the quiz is finished
                 showResults();
             }
         }
 
-        // --- Función para Mostrar Resultados ---
+        // --- Function to Show Results ---
         function showResults() {
-            // 1. Ocultar el cuerpo del quiz y el botón
+            // 1. Hide the quiz body and button
             quizBody.classList.add('hidden');
             quizFooter.classList.add('hidden');
-            header.classList.add('hidden'); // Oculta también el header original
+            header.classList.add('hidden'); // Also hide the original header
 
-            // 2. Calcular la puntuación
+            // 2. Calculate the score
             score = 0;
-            let resultsHTML = ''; // String para construir el HTML de resultados
+            let resultsHTML = ''; // String to build the results HTML
 
             quizData.forEach((question, index) => {
                 const userAnswer = userAnswers[index];
@@ -588,50 +588,50 @@
                     score++;
                 }
 
-                // Encontrar el texto de la opción seleccionada y la correcta
-                const userAnswerText = question.options.find(opt => opt.value === userAnswer)?.text || "No respondida";
+                // Find the text for the user's answer and the correct answer
+                const userAnswerText = question.options.find(opt => opt.value === userAnswer)?.text || "Not answered";
                 const correctAnswerText = question.options.find(opt => opt.value === question.correct).text;
 
-                // Construir el HTML para este item de resultado
+                // Build the HTML for this result item
                 resultsHTML += `
                     <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
-                        <h3>Pregunta ${index + 1}: ${isCorrect ? 'Correcta' : 'Incorrecta'}</h3>
+                        <h3>Question ${index + 1}: ${isCorrect ? 'Correct' : 'Incorrect'}</h3>
                         <p class="question-title">${question.question}</p>
-                        <p><strong>Tu respuesta:</strong> ${userAnswerText}</p>
-                        ${!isCorrect ? `<p class="answer-key"><strong>Respuesta correcta:</strong> ${correctAnswerText}</p>` : ''}
+                        <p><strong>Your answer:</strong> ${userAnswerText}</p>
+                        ${!isCorrect ? `<p class="answer-key"><strong>Correct answer:</strong> ${correctAnswerText}</p>` : ''}
                         <div class="explanation">
-                            <strong>Explicación:</strong> ${question.explanation}
+                            <strong>Explanation:</strong> ${question.explanation}
                         </div>
                     </div>
                 `;
             });
 
-            // 3. Preparar el HTML final de resultados (con el resumen de puntuación)
+            // 3. Prepare the final results HTML (with score summary)
             const finalResultsHTML = `
                 <div class="score-summary">
-                    <h1>Resultados Finales</h1>
+                    <h1>Final Results</h1>
                     <h2>${score} / ${quizData.length}</h2>
                 </div>
                 ${resultsHTML}
             `;
 
-            // 4. Mostrar los resultados
+            // 4. Display the results
             resultsPage.innerHTML = finalResultsHTML;
             resultsPage.classList.remove('hidden');
 
-            // Mueve la vista al inicio de los resultados
+            // Scroll to the top of the results
             quizContainer.scrollIntoView({ behavior: 'smooth' });
         }
 
 
         // --- Event Listeners ---
         
-        // Carga la primera pregunta cuando la página esté lista
+        // Load the first question when the page is ready
         document.addEventListener('DOMContentLoaded', () => {
             loadQuestion(0);
         });
 
-        // Asigna la función al botón "Siguiente"
+        // Assign the function to the "Next" button
         nextBtn.addEventListener('click', handleNextButton);
 
     </script>
